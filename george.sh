@@ -21,9 +21,11 @@ case $1 in
 esac
 
 #################### variables we'll find useful
-boldon=$(tput bold)
-redon=$(tput setaf 1)
-reset=$(tput sgr0)
+if [ -n "$verbose" ] ; then
+    boldon=$(tput bold)
+    redon=$(tput setaf 1)
+    reset=$(tput sgr0)
+fi
 
 
 #################### functions are fun
@@ -56,7 +58,7 @@ esac
 OFFSET="now +9 seconds" 
 
 # make mpv quieter
-MPVOPTS="--quiet"
+MPVOPTS="--quiet --volume=50"
 
 # audio path relative to script
 audpath=audio/m4a
